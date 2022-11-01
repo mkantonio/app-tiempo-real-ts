@@ -9,10 +9,30 @@ router.get('/mensajes', (req: Request, res: Response) => {
     })
 });
 
+// Obtener datos a traves del body
 router.post('/mensajes', (req: Request, res: Response) => {
+
+    const cuerpo = req.body.cuerpo;
+    const de = req.body.de;
     res.json({
         ok: true,
-        mensaje: 'Mensaje por método POST'
+        cuerpo: cuerpo,
+        de: de
+    })
+});
+
+// Obtener datos a traves de los parametros
+router.post('/mensajes/:id', (req: Request, res: Response) => {
+
+    const cuerpo = req.body.cuerpo;
+    const de = req.body.de;
+    const id = req.params.id;
+
+    res.json({
+        ok: true,
+        cuerpo: cuerpo,
+        de: de,
+        id
     })
 });
 
